@@ -37,7 +37,7 @@ extension ManuallyOrdering {
     /// Returns a dict for O(1) updating of a model's index (performed by the callee) knowing its ID.
     /// This is immutable to `elements` because `inout` / returning + modifying in the callee
     /// leads to a nasty "invalid relationship KeyPathWriteableReference" error.
-    func reordering(elements: [Element], source: Element, to destIndex: Int) -> [PersistentIdentifier: Int] {
+    public func reordering(elements: [Element], source: Element, to destIndex: Int) -> [PersistentIdentifier: Int] {
         // Duplicate so we can modify indices w/o using the array that auto-updates based on those indices
         let destIndex = destIndex
         var orderedSet = order(elements: elements)
@@ -53,7 +53,7 @@ extension ManuallyOrdering {
         return convertToDictionary(orderedSet: orderedSet)
     }
 
-    func reordering(elements: [Element], removing elementToRemove: Element) -> [PersistentIdentifier: Int] {
+    public func reordering(elements: [Element], removing elementToRemove: Element) -> [PersistentIdentifier: Int] {
         var ordered = order(elements: elements)
         _ = ordered.remove(elementToRemove)
         return convertToDictionary(orderedSet: ordered)

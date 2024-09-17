@@ -22,6 +22,7 @@ let package = Package(
             ]),
         .testTarget(
             name: "ManuallyOrderableTests",
-            dependencies: ["ManuallyOrderable"]),
+            dependencies: ["ManuallyOrderable"]
+        ),
     ]
 )
